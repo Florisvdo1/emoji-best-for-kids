@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oever.art interactive link tree with advanced effects.">
+  <meta name="author" content="Oever.art">
+  <title>Oever.Art Link Tree</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="matrix-background"></div>
+  <div class="container">
+    <div class="logo">
+      <h1>oever.art</h1>
+    </div>
+    <div class="links">
+      <!-- Dynamically render 40 buttons -->
+      <script>
+        for (let i = 1; i <= 40; i++) {
+          document.write(`<a class="button glossy" href="#" target="_blank">Button ${i}</a>`);
+        }
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Viewport settings for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <title>Emoji Drag-and-Drop Planner</title>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Welcome Screen Overlay -->
+  <div id="welcome-screen" class="overlay">
+    <div class="welcome-content">
+      <h2>Welcome to Emoji Planner!</h2>
+      <div class="slider">
+        <div class="slide active" id="slide-1">
+          <p>Plan your day with emojis representing real activities.</p>
+        </div>
+        <div class="slide" id="slide-2">
+          <p>Drag and drop emojis into your Morning, Midday, and Evening planners.</p>
+        </div>
+        <div class="slide" id="slide-3">
+          <p>Customize your schedule and keep track of your tasks.</p>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button id="prev-slide" aria-label="Previous Slide">Prev</button>
+        <button id="next-slide" aria-label="Next Slide">Next</button>
+      </div>
+      <div class="slider-navigation">
+        <span class="dot active" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+      </div>
+      <div class="welcome-buttons">
+        <button id="skip-welcome">Skip</button>
+        <button id="finish-welcome">Finish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <div id="header-container">
+      <div class="header-left">
+        <span id="live-time">--:--:--</span>
+      </div>
+      <div class="header-center">
+        <h1>Emoji Planner</h1>
+      </div>
+      <div class="header-right">
+        <button id="reset-button" class="icon-button" aria-label="Reset Planner">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Huiswerk (Homework) Section -->
+    <section id="huiswerk-container">
+      <div class="huiswerk-placeholder">
+        <button id="huiswerk-button" class="huiswerk-button">
+          Huiswerk gedaan? Druk op de knop
+        </button>
+      </div>
+    </section>
+
+    <!-- Planner Sections -->
+    <div id="planner">
+      <!-- Morning Section -->
+      <section id="morning-sector" class="sector">
+        <header class="sector-header">
+          <h2>Morning</h2>
+        </header>
+        <div class="emoji-placeholders">
+          <div class="emoji-placeholder" data-id="morning-1"></div>
+          <div class="emoji-placeholder" data-id="morning-2"></div>
+          <div class="emoji-placeholder" data-id="morning-3"></div>
+          <div class="emoji-placeholder" data-id="morning-4"></div>
+          <div class="emoji-placeholder" data-id="morning-5"></div>
+        </div>
+        <input type="text" placeholder="Notes for Morning" class="sector-notes">
+      </section>
+
+      <!-- Midday Section -->
+      <section id="midday-sector" class="sector">
+        <header class="sector-header">
+          <h2>Midday</h2>
+        </header>
+        <div class="emoji-placeholders">
+          <div class="emoji-placeholder" data-id="midday-1"></div>
+          <div class="emoji-placeholder" data-id="midday-2"></div>
+          <div class="emoji-placeholder" data-id="midday-3"></div>
+          <div class="emoji-placeholder" data-id="midday-4"></div>
+          <div class="emoji-placeholder" data-id="midday-5"></div>
+        </div>
+        <input type="text" placeholder="Notes for Midday" class="sector-notes">
+      </section>
+
+      <!-- Evening Section -->
+      <section id="evening-sector" class="sector">
+        <header class="sector-header">
+          <h2>Evening</h2>
+        </header>
+        <div class="emoji-placeholders">
+          <div class="emoji-placeholder" data-id="evening-1"></div>
+          <div class="emoji-placeholder" data-id="evening-2"></div>
+          <div class="emoji-placeholder" data-id="evening-3"></div>
+          <div class="emoji-placeholder" data-id="evening-4"></div>
+          <div class="emoji-placeholder" data-id="evening-5"></div>
+        </div>
+        <input type="text" placeholder="Notes for Evening" class="sector-notes">
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer with Emoji Deck -->
+  <footer>
+    <div id="emoji-deck">
+      <!-- Emoji Navigation Controls -->
+      <div class="emoji-navigation">
+        <button id="prev-page" aria-label="Previous Emoji Page">◀️</button>
+        <span id="category-name">Activities Part 1</span>
+        <button id="next-page" aria-label="Next Emoji Page">▶️</button>
+      </div>
+      <!-- Emoji Grid -->
+      <div class="emoji-grid" id="emoji-grid"></div>
+    </div>
+  </footer>
+
+  <!-- Link to the external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,592 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent scrolling */
+html, body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Press Start 2P', cursive; /* Pixel art-inspired font */
+  background: #1e3d59; /* Dark blue background */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+  position: relative;
+}
+
+/* Background Clouds */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 400px;
+  height: 200px;
+  background: radial-gradient(circle at 50px 50px, #a2d5f2, transparent 70%);
+  border-radius: 50%;
+  animation: moveClouds 60s linear infinite;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 100px;
+  left: -300px;
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(circle at 150px 150px, #a2d5f2, transparent 70%);
+  border-radius: 50%;
+  animation: moveClouds 90s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes moveClouds {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(1000px);
+  }
+}
+
+/* Welcome Screen Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 61, 89, 0.95); /* Semi-transparent dark blue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.welcome-content {
+  background: #ffffff;
+  color: #1e3d59;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.welcome-content h2 {
+  margin-bottom: 20px;
+}
+
+.slider {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slider-controls {
+  margin-top: 10px;
+}
+
+.slider-controls button {
+  background: #1e3d59;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-controls button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slider-controls button:hover::before {
+  transform: scaleX(1);
+}
+
+.slider-navigation {
+  margin: 10px 0;
+}
+
+.slider-navigation .dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.slider-navigation .dot.active {
+  background-color: #1e3d59;
+}
+
+.welcome-buttons {
+  margin-top: 20px;
+}
+
+.welcome-buttons button {
+  background: #1e3d59;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.welcome-buttons button:hover::before {
+  transform: scaleX(1);
+}
+
+/* Header Styling */
+header {
+  background: rgba(30, 61, 89, 0.9); /* Semi-transparent dark blue */
+  border-bottom: 1px solid #a2d5f2;
+  padding: 10px 20px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem; /* Adjusted for better visibility */
+  text-align: center;
+  color: #ffffff;
+}
+
+.icon-button {
+  background: #1e3d59;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.icon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon-button:hover::before {
+  transform: scale(1);
+}
+
+/* Huiswerk Section */
+#huiswerk-container {
+  padding: 10px 20px;
+  text-align: center;
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.huiswerk-button {
+  width: 100%;
+  padding: 12px;
+  background: #1e3d59;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.huiswerk-button.green {
+  background: #28a745;
+  color: #ffffff;
+}
+
+.huiswerk-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.huiswerk-button:hover::before {
+  transform: scaleX(1);
+}
+
+/* Planner Sections */
+#planner {
+  flex-grow: 1;
+  overflow: auto; /* Allow scrolling if needed */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.sector {
+  flex: 1;
+  padding: 15px;
+  background: rgba(30, 61, 89, 0.8); /* Semi-transparent dark blue */
+  border: 2px solid #a2d5f2;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sector-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.sector-header h2 {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.emoji-placeholders {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.emoji-placeholder {
+  width: 18%;
+  max-width: 60px; /* Ensures placeholders fit within the container */
+  aspect-ratio: 1;
+  background: #ffffff;
+  border: 2px dashed #1e3d59;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.emoji-placeholder.highlight {
+  border-color: #a2d5f2;
+  background-color: #a2d5f2;
+  transform: scale(1.05);
+}
+
+.sector-notes {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #a2d5f2;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: #1e3d59;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Emoji Deck */
+#emoji-deck {
+  background: rgba(30, 61, 89, 0.9); /* Semi-transparent dark blue */
+  border-top: 2px solid #a2d5f2;
+  padding: 15px 20px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Emoji Navigation Controls */
+.emoji-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.emoji-navigation button {
+  background: #1e3d59;
+  color: #ffffff;
+  border: 2px solid #a2d5f2;
+  padding: 10px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.emoji-navigation button:hover {
+  background: #a2d5f2;
+  border-color: #ffffff;
+}
+
+.emoji-navigation span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Emoji Grid */
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  gap: 8px;
+  max-height: 80px; /* Ensures two full rows are visible */
+  overflow-y: auto; /* Allows scrolling if more emojis are present */
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.emoji-item {
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+  animation: zoomEmoji 5s infinite;
+  font-family: 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+}
+
+/* Zooming Emoji Animation */
+@keyframes zoomEmoji {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Magnet Effect Animation */
+.magnet-effect {
+  animation: magnet 0.3s forwards;
+}
+
+@keyframes magnet {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  /* Adjustments for very small screens */
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .icon-button {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .huiswerk-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .sector-header h2 {
+    font-size: 1rem;
+  }
+
+  .emoji-placeholder {
+    max-width: 50px;
+    font-size: 0.9rem;
+  }
+
+  .emoji-navigation button {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    padding: 8px 12px;
+  }
+
+  .emoji-navigation span {
+    font-size: 1rem;
+  }
+
+  .emoji-grid {
+    gap: 5px;
+    max-height: 70px;
+  }
+
+  .welcome-content {
+    padding: 15px;
+  }
+
+  .welcome-content h2 {
+    font-size: 1rem;
+  }
+
+  .welcome-content p {
+    font-size: 0.8rem;
+  }
+
+  .slider-controls button,
+  .welcome-buttons button {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+  }
+
+  .slider-navigation .dot {
+    height: 8px;
+    width: 8px;
+  }
+}
+
+@media (min-width: 600px) {
+  /* Adjustments for larger screens */
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .icon-button {
+    font-size: 1.1rem;
+    padding: 8px 14px;
+  }
+
+  .huiswerk-button {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+
+  .sector-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .emoji-placeholder {
+    max-width: 60px;
+    font-size: 1rem;
+  }
+
+  .emoji-navigation button {
+    font-size: 1.8rem;
+    margin: 0 15px;
+    padding: 10px 20px;
+  }
+
+  .emoji-navigation span {
+    font-size: 1.2rem;
+  }
+
+  .emoji-grid {
+    gap: 8px;
+    max-height: 80px;
+  }
+
+  .welcome-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .welcome-content p {
+    font-size: 1rem;
+  }
+
+  .slider-controls button,
+  .welcome-buttons button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .slider-navigation .dot {
+    height: 10px;
+    width: 10px;
+  }
+}
+
+@media (min-height: 800px) {
+  #emoji-deck {
+    height: var(--emoji-deck-height, 150px);
+  }
+
+  .emoji-grid {
+    max-height: 80px;
+  }
+}
